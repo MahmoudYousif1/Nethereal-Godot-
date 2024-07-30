@@ -5,4 +5,11 @@ This is a game that I have been working on using the Godot engine. It is still i
 Here are some images of the game so far:
 
 ![images1](assets/images/images1.png)
-![Upcoming Developer & Code Enthusiast](Portfolio_Vite/src/assets/image.png)
+
+![images1](assets/images/images2.png)
+
+![images1](assets/images/images3.png)
+
+![images1](assets/images/images4.png)
+
+![images1](assets/images/images5.png)
