@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2dudclwg0tq4"]
+
+[ext_resource type="Script" path="res://scripts/ghosting.gd" id="2_w5dov"]
+
+[node name="ghosting" type="Sprite2D"]
+show_behind_parent = true
+position = Vector2(-2, 2)
+scale = Vector2(0.193222, 0.153846)
+script = ExtResource("2_w5dov")

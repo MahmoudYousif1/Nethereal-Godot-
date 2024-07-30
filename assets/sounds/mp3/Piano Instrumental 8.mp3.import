@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co8poqf3nta1y"
+path="res://.godot/imported/Piano Instrumental 8.mp3-dcd98773fc880f11b3e909657994ee81.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/mp3/Piano Instrumental 8.mp3"
+dest_files=["res://.godot/imported/Piano Instrumental 8.mp3-dcd98773fc880f11b3e909657994ee81.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

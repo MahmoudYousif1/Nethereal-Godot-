@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ndeqtv1cb1q2"]
+
+[node name="character_hub" type="TileMap"]
+format = 2

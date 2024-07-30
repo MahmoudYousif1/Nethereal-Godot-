@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://cehpbht0yn0cd"]
+
+[ext_resource type="PackedScene" uid="uid://cj7mqjgb1p12a" path="res://scenes/level_tilemap.tscn" id="1_vkfgt"]
+[ext_resource type="PackedScene" uid="uid://c2ic5tgj2bfh7" path="res://scenes/pause_menu.tscn" id="3_qkrpt"]
+[ext_resource type="PackedScene" uid="uid://ca77xugd1pv68" path="res://scenes/main_character.tscn" id="3_x04y4"]
+
+[sub_resource type="Environment" id="Environment_nwr7w"]
+background_mode = 3
+tonemap_exposure = 1.2
+glow_enabled = true
+glow_intensity = 2.13
+glow_strength = 0.97
+glow_bloom = 0.04
+glow_blend_mode = 1
+adjustment_enabled = true
+adjustment_saturation = 4.02
+
+[sub_resource type="Animation" id="Animation_rwg0w"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rvfae"]
+_data = {
+"fade_in": SubResource("Animation_rwg0w")
+}
+
+[node name="TheRedRift" type="Node2D"]
+modulate = Color(2, 2, 2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.0156863, 0, 0, 0.92549)
+show_behind_parent = true
+custom_minimum_size = Vector2(50000, 50000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24228.0
+offset_top = -24589.0
+offset_right = 25772.0
+offset_bottom = 25411.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0666667, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nwr7w")
+
+[node name="levelTilemap" parent="." instance=ExtResource("1_vkfgt")]
+modulate = Color(0.329979, 0.0845899, 0.128728, 1)
+show_behind_parent = true
+top_level = true
+visibility_layer = 2
+z_index = 20
+layer_0/tile_data = PackedInt32Array(65532, 131072, 1, 65533, 655360, 3, 131069, 65536, 1, 131068, 655360, 3, 131067, 655360, 3, 65531, 65536, 1, 131066, 131072, 1, 65530, 131072, 1, 65528, 131072, 1, 65529, 65536, 1, 131065, 65536, 1, 131064, 589824, 3, 131063, 458752, 4, 65527, 655360, 3, 65520, 655360, 3, 65521, 131072, 1, 65522, 131072, 1, 65523, 65536, 1, 65524, 131072, 1, 65525, 655360, 3, 65526, 655360, 3, 131062, 393216, 4, 131061, 0, 4, 131060, 65536, 4, 131059, 393216, 4, 131058, 393216, 4, 131057, 393216, 4, 131056, 393216, 4, 131055, 0, 4, 65519, 65536, 1, -21, 131072, 0, -20, 131072, 0, -19, 131072, 0, 65518, 65536, 1, 131054, 262144, 4, 65517, 655360, 3, 65516, 131072, 1, 65515, 131072, 1, 65514, 65536, 1, -22, 131072, 0, -26, 131072, 0, -25, 65536, 0, -24, 65536, 0, -23, 131072, 0, 65513, 655360, 3, 65512, 131072, 1, 65511, 65536, 1, 65510, 65536, 1, 65509, 65536, 1, -27, 65536, 0, -29, 65536, 0, -28, 131072, 0, 65508, 65536, 1, 65507, 655360, 3, 65506, 131072, 1, -30, 65536, 0, -32, 65536, 0, -31, 65536, 0, 65505, 65536, 1, 65504, 131072, 1, 65503, 131072, 1, -33, 65536, 0, -34, 65536, 0, 65502, 65536, 1, 65501, 589824, 1, -35, 131072, 0, 65500, 131072, 0, -36, 393216, 0, 65499, 131072, 0, -37, 393216, 0, 65498, 131072, 0, -38, 393216, 0, 65497, 65536, 0, -39, 458752, 0, 65496, 65536, 0, 131032, 0, 4, 131031, 262144, 4, 65495, 655360, 3, 131030, 0, 4, 65494, 131072, 1, 131029, 393216, 4, 65493, 131072, 1, 131028, 327680, 4, 65492, 393216, 3, 131033, 65536, 4, 131034, 262144, 4, 131035, 65536, 4, 131036, 393216, 4, 131037, 393216, 4, 131038, 0, 4, 131039, 65536, 4, 131040, 65536, 4, 131041, 262144, 4, 131042, 0, 4, 131043, 0, 4, 131044, 262144, 4, 131045, 65536, 4, 131046, 262144, 4, 131047, 393216, 4, 131048, 262144, 4, 131049, 65536, 4, 131050, 0, 4, 131051, 393216, 4, 131052, 262144, 4, 131053, 393216, 4, 196600, 65536, 4, 196599, 327680, 4, 196601, 65536, 4, 196602, 393216, 4, 196603, 262144, 4, 196604, 65536, 4, 196605, 262144, 4, 131070, 196608, 1, 196606, 196608, 4, 65534, 196608, 1, -18, 65536, 0, -8, 131072, 0, -7, 131072, 0, -9, 65536, 0, -6, 131072, 0, -5, 131072, 0, -2, 131072, 0, -1, 196608, 0, 65535, 196608, 4, -3, 131072, 0, -4, 65536, 0, -10, 65536, 0, -11, 131072, 0, -12, 65536, 0, -13, 131072, 0, -14, 65536, 0, -15, 65536, 0, -16, 131072, 0, -17, 65536, 0, -41, 65536, 0, -40, 196608, 0, -42, 131072, 0, -43, 131072, 0, -44, 393216, 3)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="mainCharacter" parent="." instance=ExtResource("3_x04y4")]
+process_mode = 3
+z_index = 50
+position = Vector2(-483, -165)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="mainCharacter"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rvfae")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pauseMenu" parent="CanvasLayer" instance=ExtResource("3_qkrpt")]
+top_level = true
+z_index = 100
+offset_left = -41.0
+offset_top = -2.0
+offset_right = 14.0
+offset_bottom = -62.0

@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://c2xmttklo7n5f"]
+
+[ext_resource type="Texture2D" uid="uid://cf1rtj0xxgksi" path="res://assets/map/Flamethrower-Sheet.png" id="1_3iu4m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qw81k"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dedqe"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(96, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2u6x"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(192, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83llt"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(0, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22d08"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(96, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xi6d"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(192, 48, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8et5"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(0, 96, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb7rb"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(96, 96, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5os2c"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(192, 96, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1vdr"]
+atlas = ExtResource("1_3iu4m")
+region = Rect2(0, 144, 96, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8ywf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qw81k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dedqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2u6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83llt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22d08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xi6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8et5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb7rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5os2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1vdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="flames" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.55705
+scale = Vector2(27.6381, 21.3766)
+sprite_frames = SubResource("SpriteFrames_v8ywf")
+autoplay = "default"
+frame_progress = 0.655584

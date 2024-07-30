@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg251gortdfm0"]
+
+[ext_resource type="Texture2D" uid="uid://b36d25xrkv610" path="res://assets/characters/mainRun1.png" id="1_o0j8g"]
+[ext_resource type="Script" path="res://scripts/ghost.gd" id="2_ldqey"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvr6n"]
+atlas = ExtResource("1_o0j8g")
+region = Rect2(340, 0, 340, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hca23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvr6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Ghost" type="AnimatedSprite2D"]
+position = Vector2(-21, 2)
+scale = Vector2(0.635294, 0.6875)
+sprite_frames = SubResource("SpriteFrames_hca23")
+autoplay = "default"
+script = ExtResource("2_ldqey")

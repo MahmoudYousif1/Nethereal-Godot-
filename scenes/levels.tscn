@@ -1,0 +1,280 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8pte4h8fi80r"]
+
+[ext_resource type="PackedScene" uid="uid://cj7mqjgb1p12a" path="res://scenes/level_tilemap.tscn" id="1_bjlq4"]
+[ext_resource type="FontFile" uid="uid://coynlacfh80fp" path="res://assets/UI/Alkhemikal.ttf" id="1_dldqf"]
+[ext_resource type="Script" path="res://scenes/levels.gd" id="1_jbyuj"]
+[ext_resource type="Theme" uid="uid://bn5331o8qs7n2" path="res://assets/default_theme.tres" id="2_1w243"]
+[ext_resource type="ButtonGroup" uid="uid://c76w3chwp0o2s" path="res://scenes/new_button_group.tres" id="3_wmnrv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vqubc"]
+font = ExtResource("1_dldqf")
+font_size = 230
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_430qj"]
+bg_color = Color(0.103744, 0.103744, 0.103743, 1)
+border_color = Color(0.253843, 0.253843, 0.253843, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tde2"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0.210507, 0.210507, 0.210507, 1)
+border_blend = true
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(0.625597, 0.625597, 0.625597, 0.6)
+shadow_size = 5
+
+[sub_resource type="Environment" id="Environment_8ey5w"]
+background_mode = 3
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.86
+glow_strength = 1.31
+glow_bloom = 0.05
+glow_blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_fcdvs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jkyps"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7g183"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2mpi"]
+_data = {
+"RESET": SubResource("Animation_fcdvs"),
+"fade_in": SubResource("Animation_jkyps"),
+"fade_out": SubResource("Animation_7g183")
+}
+
+[node name="Levels" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_jbyuj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(4000, 4000)
+offset_left = -1906.0
+offset_top = -2032.0
+offset_right = 2094.0
+offset_bottom = 1968.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="levelTilemap" parent="." instance=ExtResource("1_bjlq4")]
+
+[node name="level" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="options" type="Node2D" parent="level"]
+
+[node name="LevelsTitle" type="Label" parent="level/options"]
+offset_left = -310.0
+offset_top = -631.0
+offset_right = 323.0
+offset_bottom = -380.0
+text = "Stage 1
+"
+label_settings = SubResource("LabelSettings_vqubc")
+
+[node name="Button1" type="Button" parent="level/options"]
+offset_left = -1112.0
+offset_top = 498.0
+offset_right = -599.0
+offset_bottom = 598.0
+theme = ExtResource("2_1w243")
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 100
+text = "< Main Menu"
+
+[node name="Button2" type="Button" parent="level/options"]
+offset_left = 565.0
+offset_top = 495.0
+offset_right = 1047.0
+offset_bottom = 595.0
+theme = ExtResource("2_1w243")
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 100
+text = "Next Stage >"
+
+[node name="level1" type="Button" parent="level/options"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = -829.0
+offset_top = -169.0
+offset_right = -551.0
+offset_bottom = 39.0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+theme_override_colors/font_pressed_color = Color(0.144063, 0.144063, 0.144063, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_disabled_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 50
+theme_override_constants/icon_max_width = 100
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_430qj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7tde2")
+toggle_mode = true
+button_group = ExtResource("3_wmnrv")
+text = "1.
+"
+
+[node name="level2" type="Button" parent="level/options"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = -483.0
+offset_top = -169.0
+offset_right = -205.0
+offset_bottom = 39.0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+theme_override_colors/font_pressed_color = Color(0.144063, 0.144063, 0.144063, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_disabled_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 50
+theme_override_constants/icon_max_width = 100
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_430qj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7tde2")
+toggle_mode = true
+button_group = ExtResource("3_wmnrv")
+text = "2.
+"
+
+[node name="level3" type="Button" parent="level/options"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = -148.0
+offset_top = -170.0
+offset_right = 130.0
+offset_bottom = 38.0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+theme_override_colors/font_pressed_color = Color(0.144063, 0.144063, 0.144063, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_disabled_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 50
+theme_override_constants/icon_max_width = 100
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_430qj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7tde2")
+toggle_mode = true
+button_group = ExtResource("3_wmnrv")
+text = "3.
+"
+
+[node name="level4" type="Button" parent="level/options"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 194.0
+offset_top = -166.0
+offset_right = 472.0
+offset_bottom = 42.0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+theme_override_colors/font_pressed_color = Color(0.144063, 0.144063, 0.144063, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_disabled_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 50
+theme_override_constants/icon_max_width = 100
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_430qj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7tde2")
+toggle_mode = true
+button_group = ExtResource("3_wmnrv")
+text = "4.
+"
+
+[node name="level5" type="Button" parent="level/options"]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 547.0
+offset_top = -169.0
+offset_right = 825.0
+offset_bottom = 39.0
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0.0562916, 0.0562916, 0.0562916, 1)
+theme_override_colors/font_pressed_color = Color(0.144063, 0.144063, 0.144063, 1)
+theme_override_colors/font_hover_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_focus_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_colors/font_disabled_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/h_separation = 50
+theme_override_constants/icon_max_width = 100
+theme_override_fonts/font = ExtResource("1_dldqf")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/normal = SubResource("StyleBoxFlat_430qj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7tde2")
+toggle_mode = true
+button_group = ExtResource("3_wmnrv")
+text = "5.
+"
+
+[node name="Timer" type="Timer" parent="level/options"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8ey5w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y2mpi")
+}
+
+[connection signal="pressed" from="level/options/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="level/options/level1" to="." method="_on_level_1_pressed"]

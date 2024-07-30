@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6ut4t3fm3vim"]
+
+[ext_resource type="Texture2D" uid="uid://d24au8m3m77av" path="res://assets/textures/32x32_Arcane_0.png" id="1_fbbcn"]
+
+[sub_resource type="Curve" id="Curve_15x3r"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0.012, 340.728), 0.0, 0.0, 0, 0, Vector2(0.932, -243.871), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_d6o48"]
+_data = [Vector2(0.024, 0.892931), 0.0, 0.0, 0, 0, Vector2(0.976, 0.0809883), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="floatingParticles" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 300
+lifetime = 0.7
+speed_scale = 0.3
+explosiveness = 0.26
+randomness = 1.0
+lifetime_randomness = 0.07
+texture = ExtResource("1_fbbcn")
+emission_shape = 3
+emission_rect_extents = Vector2(7000, -800)
+direction = Vector2(-5, 0)
+spread = 77.5
+initial_velocity_min = 27.78
+initial_velocity_max = 69.44
+angular_velocity_min = -460.0
+angular_velocity_max = -460.0
+linear_accel_min = 76.0
+linear_accel_max = 100.0
+tangential_accel_min = -40.28
+tangential_accel_max = -40.28
+damping_min = 24.306
+damping_max = 47.222
+angle_curve = SubResource("Curve_15x3r")
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_d6o48")
+color = Color(2, 2, 2, 1)

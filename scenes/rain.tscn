@@ -1,0 +1,201 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4q3vs7aunrx2"]
+
+[ext_resource type="Shader" path="res://scenes/rain.gdshader" id="1_xvrqi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcvax"]
+shader = ExtResource("1_xvrqi")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_shixr"]
+load_path = "res://.godot/imported/32x32_Star_10.png-357db6e4d1d1f0753fd628d20d435b1e.ctex"
+
+[sub_resource type="Environment" id="Environment_td7w2"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 4.0
+glow_strength = 1.01
+glow_bloom = 0.02
+glow_blend_mode = 1
+adjustment_enabled = true
+adjustment_saturation = 8.0
+
+[node name="rain" type="Node2D"]
+modulate = Color(0.67451, 1, 1, 1)
+material = SubResource("ShaderMaterial_qcvax")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color(100, 100, 100, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4, -231)
+amount = 100
+lifetime = 0.2
+speed_scale = 0.01
+explosiveness = 0.47
+randomness = 1.0
+lifetime_randomness = 0.7
+local_coords = true
+texture = SubResource("CompressedTexture2D_shixr")
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(7000, 0)
+spread = 126.5
+gravity = Vector2(0, -7000)
+initial_velocity_min = 42.92
+initial_velocity_max = 496.34
+angular_velocity_min = -312.73
+angular_velocity_max = -312.73
+orbit_velocity_min = -8.0
+orbit_velocity_max = -8.0
+linear_accel_min = -25.34
+linear_accel_max = -25.34
+radial_accel_min = -17.19
+radial_accel_max = -17.19
+tangential_accel_min = -19.19
+tangential_accel_max = -19.19
+damping_min = 6.335
+damping_max = 6.335
+scale_amount_min = 0.09
+scale_amount_max = 0.1
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+modulate = Color(0, 128.498, 100, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4, -231)
+amount = 100
+lifetime = 0.2
+speed_scale = 0.01
+explosiveness = 0.47
+randomness = 1.0
+lifetime_randomness = 0.7
+local_coords = true
+texture = SubResource("CompressedTexture2D_shixr")
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(7000, 0)
+spread = 126.5
+gravity = Vector2(0, -7000)
+initial_velocity_min = 42.92
+initial_velocity_max = 496.34
+angular_velocity_min = -312.73
+angular_velocity_max = -312.73
+orbit_velocity_min = -8.0
+orbit_velocity_max = -8.0
+linear_accel_min = -25.34
+linear_accel_max = -25.34
+radial_accel_min = -17.19
+radial_accel_max = -17.19
+tangential_accel_min = -19.19
+tangential_accel_max = -19.19
+damping_min = 6.335
+damping_max = 6.335
+scale_amount_min = 0.09
+scale_amount_max = 0.1
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+modulate = Color(100, 0, 100, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4, -231)
+amount = 100
+lifetime = 0.2
+speed_scale = 0.01
+explosiveness = 0.47
+randomness = 1.0
+lifetime_randomness = 0.7
+local_coords = true
+texture = SubResource("CompressedTexture2D_shixr")
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(7000, 0)
+spread = 126.5
+gravity = Vector2(0, -7000)
+initial_velocity_min = 42.92
+initial_velocity_max = 496.34
+angular_velocity_min = -312.73
+angular_velocity_max = -312.73
+orbit_velocity_min = -8.0
+orbit_velocity_max = -8.0
+linear_accel_min = -25.34
+linear_accel_max = -25.34
+radial_accel_min = -17.19
+radial_accel_max = -17.19
+tangential_accel_min = -19.19
+tangential_accel_max = -19.19
+damping_min = 6.335
+damping_max = 6.335
+scale_amount_min = 0.09
+scale_amount_max = 0.1
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="."]
+modulate = Color(100, 0, 0, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4, -231)
+amount = 100
+lifetime = 0.2
+speed_scale = 0.01
+explosiveness = 0.47
+randomness = 1.0
+lifetime_randomness = 0.7
+local_coords = true
+texture = SubResource("CompressedTexture2D_shixr")
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(7000, 0)
+spread = 126.5
+gravity = Vector2(0, -7000)
+initial_velocity_min = 42.92
+initial_velocity_max = 496.34
+angular_velocity_min = -312.73
+angular_velocity_max = -312.73
+orbit_velocity_min = -8.0
+orbit_velocity_max = -8.0
+linear_accel_min = -25.34
+linear_accel_max = -25.34
+radial_accel_min = -17.19
+radial_accel_max = -17.19
+tangential_accel_min = -19.19
+tangential_accel_max = -19.19
+damping_min = 6.335
+damping_max = 6.335
+scale_amount_min = 0.09
+scale_amount_max = 0.1
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="."]
+modulate = Color(100, 1, 0, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-4, -231)
+amount = 100
+lifetime = 0.2
+speed_scale = 0.01
+explosiveness = 0.47
+randomness = 1.0
+lifetime_randomness = 0.7
+local_coords = true
+texture = SubResource("CompressedTexture2D_shixr")
+emission_shape = 3
+emission_rect_extents = Vector2(2000, 1)
+direction = Vector2(7000, 0)
+spread = 126.5
+gravity = Vector2(0, -7000)
+initial_velocity_min = 42.92
+initial_velocity_max = 496.34
+angular_velocity_min = -312.73
+angular_velocity_max = -312.73
+orbit_velocity_min = -8.0
+orbit_velocity_max = -8.0
+linear_accel_min = -25.34
+linear_accel_max = -25.34
+radial_accel_min = -17.19
+radial_accel_max = -17.19
+tangential_accel_min = -19.19
+tangential_accel_max = -19.19
+damping_min = 6.335
+damping_max = 6.335
+scale_amount_min = 0.09
+scale_amount_max = 0.1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_td7w2")

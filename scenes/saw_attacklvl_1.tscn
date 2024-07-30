@@ -1,0 +1,154 @@
+[gd_scene load_steps=20 format=3 uid="uid://cojhy5msyvllq"]
+
+[ext_resource type="Texture2D" uid="uid://d5nejciyed2l" path="res://assets/characters/traps/Saw Trap - Level 1.png" id="1_acgtk"]
+[ext_resource type="Script" path="res://scripts/saw_attacklvl_1.gd" id="1_iiss7"]
+[ext_resource type="Texture2D" uid="uid://d24au8m3m77av" path="res://assets/textures/32x32_Arcane_0.png" id="3_xlwek"]
+[ext_resource type="AudioStream" uid="uid://crnq4jr6irwun" path="res://assets/sounds/saw1.wav" id="4_bua4g"]
+[ext_resource type="AudioStream" uid="uid://q7pin2804d1x" path="res://assets/sounds/Retro Blop StereoUP 04.wav" id="5_plvxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s74s3"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2brx"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mey1w"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p21gj"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mccw"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g6sp"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o85yj"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_javlf"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7e33"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aadty"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2qh2"]
+atlas = ExtResource("1_acgtk")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moa6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s74s3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2brx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mey1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p21gj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mccw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3g6sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o85yj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_javlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7e33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aadty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2qh2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Curve" id="Curve_o2n48"]
+_data = [Vector2(0.00498753, 1), 0.0, 0.0, 0, 0, Vector2(0.987531, 0.199534), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fj7xx"]
+radius = 65.0
+height = 130.0
+
+[node name="sawAttacklvl1" type="Node2D"]
+modulate = Color(0.7, 0.7, 0.7, 1)
+script = ExtResource("1_iiss7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 138)
+scale = Vector2(4.625, 4.28613)
+sprite_frames = SubResource("SpriteFrames_moa6e")
+autoplay = "default"
+frame_progress = 0.962205
+
+[node name="sawattack" type="Area2D" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="sawattack"]
+z_index = 20
+position = Vector2(3, 15)
+emitting = false
+amount = 30
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.4
+randomness = 0.27
+texture = ExtResource("3_xlwek")
+emission_shape = 2
+emission_sphere_radius = 23.79
+direction = Vector2(20, 0)
+spread = 167.47
+gravity = Vector2(0, 500)
+initial_velocity_min = 123.29
+initial_velocity_max = 273.97
+angular_velocity_min = 6.58
+angular_velocity_max = 78.9
+scale_amount_min = 1.5
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_o2n48")
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color = Color(1.14902, 2, 2, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sawattack"]
+position = Vector2(8, 75)
+shape = SubResource("CapsuleShape2D_fj7xx")
+
+[node name="sawSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bua4g")
+volume_db = -11.482
+
+[node name="hitSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_plvxf")
+volume_db = -14.858
+
+[connection signal="body_entered" from="sawattack" to="." method="_on_sawattack_body_entered"]

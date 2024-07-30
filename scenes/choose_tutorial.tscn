@@ -1,0 +1,266 @@
+[gd_scene load_steps=18 format=3 uid="uid://cjre37b01wrb8"]
+
+[ext_resource type="PackedScene" uid="uid://c4q3vs7aunrx2" path="res://scenes/rain.tscn" id="1_1yn36"]
+[ext_resource type="Script" path="res://scripts/choose_tutorial.gd" id="1_5os62"]
+[ext_resource type="FontFile" uid="uid://coynlacfh80fp" path="res://assets/UI/Alkhemikal.ttf" id="3_ehuuc"]
+[ext_resource type="FontFile" uid="uid://qygpt0v2rttw" path="res://assets/UI/BodoniModa_9pt-Black.ttf" id="4_d0pch"]
+[ext_resource type="Theme" uid="uid://bn5331o8qs7n2" path="res://assets/default_theme.tres" id="5_ma5l5"]
+[ext_resource type="PackedScene" uid="uid://dedbugiy3akj1" path="res://scenes/campfire.tscn" id="5_rqgyo"]
+[ext_resource type="AudioStream" uid="uid://de0sy6nhhgdc3" path="res://assets/sounds/GUI Sound Effects_004.wav" id="6_f44xn"]
+[ext_resource type="PackedScene" uid="uid://ckwh124fwfp7c" path="res://scenes/red_anima.tscn" id="6_o0e5q"]
+[ext_resource type="PackedScene" uid="uid://dvrgcl4v3wq0j" path="res://scenes/bluefire.tscn" id="7_umbs5"]
+[ext_resource type="PackedScene" uid="uid://dvugc3ehfm6rm" path="res://scenes/green_anima.tscn" id="8_q5yme"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_elqjl"]
+font = ExtResource("4_d0pch")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_had2x"]
+font = ExtResource("4_d0pch")
+
+[sub_resource type="Animation" id="Animation_rbqna"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Chapter1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Chapter2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m6oo1"]
+resource_name = "chapter1fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Chapter1:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ir7ou"]
+resource_name = "chapter2fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Chapter2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q2skd"]
+resource_name = "fade_in"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mq5le"]
+_data = {
+"RESET": SubResource("Animation_rbqna"),
+"chapter1fade": SubResource("Animation_m6oo1"),
+"chapter2fade": SubResource("Animation_ir7ou"),
+"fade_in": SubResource("Animation_q2skd")
+}
+
+[node name="chooseTutorial" type="Node2D"]
+script = ExtResource("1_5os62")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1000, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 1360.0
+offset_bottom = 758.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="rain" parent="." instance=ExtResource("1_1yn36")]
+position = Vector2(500, 557)
+
+[node name="Node2D" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+
+[node name="Chapter1" type="Node2D" parent="Node2D"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-267, 154)
+
+[node name="Label" type="Label" parent="Node2D/Chapter1"]
+offset_left = 641.0
+offset_top = 72.0
+offset_right = 1053.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("3_ehuuc")
+theme_override_font_sizes/font_size = 40
+text = "Chapter 1: Dark Beginnings
+"
+label_settings = SubResource("LabelSettings_elqjl")
+
+[node name="Label2" type="Label" parent="Node2D/Chapter1"]
+offset_left = 596.0
+offset_top = 138.0
+offset_right = 1100.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("3_ehuuc")
+theme_override_font_sizes/font_size = 20
+text = "You awoke with no memories in an unfamiliar 
+realm distant from your own yet a strange eerie darkness looms..."
+label_settings = SubResource("LabelSettings_had2x")
+horizontal_alignment = 1
+
+[node name="NormalTutoral" type="Button" parent="Node2D/Chapter1"]
+offset_left = 683.0
+offset_top = 220.0
+offset_right = 1002.0
+offset_bottom = 268.0
+theme = ExtResource("5_ma5l5")
+theme_override_fonts/font = ExtResource("4_d0pch")
+theme_override_font_sizes/font_size = 20
+text = "Chapter 1 >"
+
+[node name="right" type="Button" parent="Node2D/Chapter1"]
+visible = false
+offset_left = 1334.0
+offset_top = 229.0
+offset_right = 1464.0
+offset_bottom = 382.0
+rotation = -3.1358
+theme = ExtResource("5_ma5l5")
+theme_override_fonts/font = ExtResource("4_d0pch")
+theme_override_font_sizes/font_size = 100
+text = "<"
+
+[node name="clickSound" type="AudioStreamPlayer2D" parent="Node2D/Chapter1"]
+stream = ExtResource("6_f44xn")
+
+[node name="Chapter2" type="Node2D" parent="Node2D"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(-267, 154)
+
+[node name="Label" type="Label" parent="Node2D/Chapter2"]
+offset_left = 641.0
+offset_top = 72.0
+offset_right = 1053.0
+offset_bottom = 123.0
+theme_override_fonts/font = ExtResource("3_ehuuc")
+theme_override_font_sizes/font_size = 40
+text = "Chapter 2: Excape the Red Rift
+"
+label_settings = SubResource("LabelSettings_elqjl")
+
+[node name="Label2" type="Label" parent="Node2D/Chapter2"]
+offset_left = 596.0
+offset_top = 138.0
+offset_right = 1100.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("3_ehuuc")
+theme_override_font_sizes/font_size = 20
+text = "A dangerous realm filled with traps &
+beasts from the void"
+label_settings = SubResource("LabelSettings_had2x")
+horizontal_alignment = 1
+
+[node name="Chapter2" type="Button" parent="Node2D/Chapter2"]
+offset_left = 683.0
+offset_top = 220.0
+offset_right = 1002.0
+offset_bottom = 268.0
+theme = ExtResource("5_ma5l5")
+theme_override_fonts/font = ExtResource("4_d0pch")
+theme_override_font_sizes/font_size = 20
+text = "Chapter 2 >"
+
+[node name="Chapter2Left" type="Button" parent="Node2D/Chapter2"]
+offset_left = 399.0
+offset_top = 80.0
+offset_right = 541.0
+offset_bottom = 241.0
+theme = ExtResource("5_ma5l5")
+theme_override_fonts/font = ExtResource("4_d0pch")
+theme_override_font_sizes/font_size = 100
+text = "<"
+
+[node name="campfire" parent="Node2D" instance=ExtResource("5_rqgyo")]
+position = Vector2(1038, 653)
+
+[node name="redAnima" parent="Node2D" instance=ExtResource("6_o0e5q")]
+position = Vector2(81, 583)
+
+[node name="Bluefire" parent="Node2D" instance=ExtResource("7_umbs5")]
+position = Vector2(917, 836)
+
+[node name="greenAnima" parent="Node2D" instance=ExtResource("8_q5yme")]
+position = Vector2(305, 586)
+
+[node name="Menu" type="Button" parent="Node2D"]
+offset_left = 14.0
+offset_top = 32.0
+offset_right = 247.0
+offset_bottom = 91.0
+theme = ExtResource("5_ma5l5")
+theme_override_fonts/font = ExtResource("4_d0pch")
+theme_override_font_sizes/font_size = 30
+text = "< Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mq5le")
+}
+
+[connection signal="pressed" from="Node2D/Chapter1/NormalTutoral" to="." method="_on_normal_tutoral_pressed"]
+[connection signal="pressed" from="Node2D/Chapter1/right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="Node2D/Chapter2/Chapter2Left" to="." method="_on_chapter_2_left_pressed"]
+[connection signal="pressed" from="Node2D/Menu" to="." method="_on_menu_pressed"]
